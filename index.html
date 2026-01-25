@@ -1,213 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Turbo Shop Inc</title>
+  <head>
+    <title>Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Raleway;
+        font-size: 18px;
+      }
 
-  <!-- Foundation CSS -->
-  <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-black);
+        background: var(--dl-color-gray-white);
 
-  <style>
-    body {
-      background-color: #f6f6f6;
-    }
-
-    /* ---------- Product Gallery ---------- */
-    .product-gallery {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .main-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 10px;
-      border-radius: 6px;
-    }
-
-    .thumbnails {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .thumbnails img {
-      width: 150px;
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.2s;
-      border-radius: 4px;
-    }
-
-    .thumbnails img:hover {
-      transform: scale(1.1);
-    }
-
-    /* ---------- Footer ---------- */
-    .footer {
-      background: #e1e1e1;
-      padding: 15px 0;
-      margin-top: 30px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="row">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text">The Turbo Shop Inc</li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><input type="search" placeholder="Search"></li>
-          <li><button class="button">Search</button></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Breadcrumb -->
-  <div class="row columns">
-    <nav aria-label="You are here:" role="navigation">
-      <ul class="breadcrumbs">
-        <li><a href="#">Home</a></li>
-        <li class="disabled">Product</li>
-        <li>
-          <span class="show-for-sr">Current:</span> Turbocharger
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <!-- Product Section -->
-  <div class="row">
-
-    <!-- Gallery Column -->
-    <div class="medium-6 columns medium-push-6">
-      <div class="product-gallery">
-        <div class="main-image">
-          <img src="https://placehold.co/650x350?text=Turbo+Main" alt="Turbocharger">
-        </div>
-        <div class="thumbnails">
-          <img src="https://placehold.co/250x200?text=Turbo+1" alt="Turbo 1">
-          <img src="https://placehold.co/250x200?text=Turbo+2" alt="Turbo 2">
-          <img src="https://placehold.co/250x200?text=Turbo+3" alt="Turbo 3">
-          <img src="https://placehold.co/250x200?text=Turbo+4" alt="Turbo 4">
-        </div>
-      </div>
-    </div>
-
-    <!-- Product Info Column -->
-    <div class="medium-6 columns medium-pull-6">
-      <h3>High Performance Turbo</h3>
-      <p>
-        Precision-engineered turbocharger designed for power, reliability,
-        and maximum boost. Built for performance enthusiasts.
-      </p>
-
-      <label>Size
-        <select>
-          <option>Small</option>
-          <option>Medium</option>
-          <option>Large</option>
-          <option>Turbo</option>
-        </select>
-      </label>
-
-      <div class="row">
-        <div class="small-3 columns">
-          <label class="middle">Quantity</label>
-        </div>
-        <div class="small-9 columns">
-          <input type="number" placeholder="1">
-        </div>
-      </div>
-
-      <a href="#" class="button large expanded">Buy Now</a>
-
-      <div class="small secondary expanded button-group">
-        <a class="button">Facebook</a>
-        <a class="button">Twitter</a>
-        <a class="button">Share</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tabs -->
-  <div class="row column">
-    <hr>
-    <ul class="tabs" data-tabs id="product-tabs">
-      <li class="tabs-title is-active">
-        <a href="#reviews" aria-selected="true">Reviews</a>
-      </li>
-      <li class="tabs-title">
-        <a href="#similar">Similar Products</a>
-      </li>
-    </ul>
-
-    <div class="tabs-content" data-tabs-content="product-tabs">
-
-      <div class="tabs-panel is-active" id="reviews">
-        <h4>Reviews</h4>
-        <p><strong>Mike Stevenson</strong> – Incredible quality and boost!</p>
-
-        <label>
-          Your Review
-          <textarea placeholder="Write your review..."></textarea>
-        </label>
-        <button class="button">Submit Review</button>
-      </div>
-
-      <div class="tabs-panel" id="similar">
-        <div class="row medium-up-3">
-          <div class="column">
-            <img class="thumbnail" src="https://placehold.co/350x200?text=Turbo+A">
-            <h5>Turbo A <small>$220</small></h5>
-            <a class="button hollow tiny expanded">Buy Now</a>
-          </div>
-          <div class="column">
-            <img class="thumbnail" src="https://placehold.co/350x200?text=Turbo+B">
-            <h5>Turbo B <small>$250</small></h5>
-            <a class="button hollow tiny expanded">Buy Now</a>
-          </div>
-          <div class="column">
-            <img class="thumbnail" src="https://placehold.co/350x200?text=Turbo+C">
-            <h5>Turbo C <small>$280</small></h5>
-            <a class="button hollow tiny expanded">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="row column footer">
-    <ul class="menu">
-      <li>The Turbo Shop Inc</li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li class="float-right">© 2026</li>
-    </ul>
-  </div>
-
-  <!-- JS -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
-
-</body>
+        fill: var(--dl-color-gray-black);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <style>
+      html {
+      scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      defer
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
 </html>
