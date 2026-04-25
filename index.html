@@ -1,205 +1,825 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cayden Simmons | Data & Analytics Portfolio</title>
+    <meta
+      name="description"
+      content="Employer-facing portfolio dashboard for Cayden Simmons, featuring projects, academic accomplishments, leadership, and experience."
+    >
+    <style>
+      :root {
+        --paper: #f5efe4;
+        --canvas: #1f2530;
+        --ink: #1f2430;
+        --muted: #5f6775;
+        --line: rgba(31, 36, 48, 0.12);
+        --warm: #c96f3d;
+        --warm-deep: #a8582b;
+        --sage: #6f8070;
+        --gold: #d6b974;
+        --panel: rgba(255, 251, 245, 0.84);
+        --panel-strong: rgba(255, 250, 243, 0.94);
+        --shadow: 0 24px 60px rgba(49, 38, 21, 0.12);
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(214, 185, 116, 0.35), transparent 28%),
+          radial-gradient(circle at top right, rgba(111, 128, 112, 0.16), transparent 24%),
+          linear-gradient(180deg, #f8f3e8 0%, #efe3d1 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+        background-size: 34px 34px;
+        opacity: 0.42;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        position: relative;
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 22px 0 44px;
+      }
+
+      .masthead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .brand {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
+        color: var(--ink);
+      }
+
+      .contact-strip {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .contact-strip a,
+      .hero-links a {
+        text-decoration: none;
+      }
+
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.12);
+        color: inherit;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .chip,
+      .hero-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero-main {
+        overflow: hidden;
+        position: relative;
+        padding: 30px;
+        background:
+          radial-gradient(circle at 88% 18%, rgba(214, 185, 116, 0.16), transparent 18%),
+          linear-gradient(135deg, rgba(31, 37, 48, 0.97), rgba(56, 64, 76, 0.9));
+        color: #fbf5ec;
+      }
+
+      .hero-main::after {
+        content: "";
+        position: absolute;
+        right: -54px;
+        top: -26px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(214, 185, 116, 0.18), transparent 70%);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        text-transform: uppercase;
+        font-size: 0.78rem;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #9bc598;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        font-size: clamp(2.9rem, 6vw, 5.2rem);
+        line-height: 0.94;
+        max-width: 9ch;
+      }
+
+      .hero-subhead {
+        margin-top: 16px;
+        max-width: 60ch;
+        color: rgba(251, 245, 236, 0.82);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .hero-links a {
+        color: #fbf5ec;
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .metric {
+        padding: 14px;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .metric span {
+        display: block;
+      }
+
+      .metric-label {
+        margin-bottom: 8px;
+        color: rgba(251, 245, 236, 0.66);
+        font-size: 0.83rem;
+        text-transform: uppercase;
+      }
+
+      .metric-value {
+        font-size: 1.38rem;
+        font-weight: 700;
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 14px;
+        padding: 24px;
+        background: var(--panel-strong);
+      }
+
+      .section-kicker {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 0.84rem;
+        text-transform: uppercase;
+      }
+
+      .snapshot-title {
+        font-size: 2.15rem;
+        line-height: 0.98;
+      }
+
+      .snapshot-copy {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .quick-facts {
+        display: grid;
+        gap: 12px;
+      }
+
+      .fact {
+        padding: 14px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.76);
+      }
+
+      .fact strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .fact span {
+        font-size: 1.08rem;
+        font-weight: 700;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+        gap: 18px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .section-head h2 {
+        font-size: 1.75rem;
+      }
+
+      .section-head p {
+        max-width: 34ch;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .feature-grid,
+      .timeline,
+      .accolade-list,
+      .tool-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature,
+      .timeline-item,
+      .accolade,
+      .tool {
+        padding: 16px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.76);
+      }
+
+      .feature h3,
+      .timeline-item h3,
+      .accolade h3,
+      .tool h3 {
+        margin-bottom: 8px;
+        font-size: 1.08rem;
+      }
+
+      .feature p,
+      .timeline-item p,
+      .accolade p,
+      .tool p {
+        color: var(--muted);
+        line-height: 1.58;
+        font-size: 0.94rem;
+      }
+
+      .proof-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .proof {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        padding: 10px 12px;
+        border-radius: var(--radius);
+        background: rgba(201, 111, 61, 0.08);
+      }
+
+      .proof strong {
+        color: var(--warm-deep);
+        font-size: 0.82rem;
+        text-transform: uppercase;
+      }
+
+      .proof span {
+        color: var(--ink);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        color: var(--warm-deep);
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+      }
+
+      .timeline-date {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(201, 111, 61, 0.12);
+        color: var(--warm-deep);
+        font-weight: 700;
+        height: fit-content;
+      }
+
+      .timeline-item ul {
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .timeline-item li + li {
+        margin-top: 6px;
+      }
+
+      .accolade-list {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta {
+        padding: 24px;
+        background:
+          linear-gradient(135deg, rgba(201, 111, 61, 0.14), rgba(214, 185, 116, 0.12)),
+          rgba(255, 251, 245, 0.92);
+      }
+
+      .cta p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cta-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .cta-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .footer {
+        padding: 20px 4px 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-metrics,
+        .feature-grid,
+        .tool-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .shell {
+          width: min(100% - 20px, 1180px);
+          padding-top: 18px;
+        }
+
+        .masthead,
+        .section-head {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .contact-strip,
+        .hero-links,
+        .cta-links {
+          justify-content: flex-start;
+        }
+
+        .hero-main,
+        .hero-side,
+        .section,
+        .cta {
+          padding: 18px;
+        }
+
+        .hero-metrics,
+        .feature-grid,
+        .tool-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .proof {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-
-
-    <!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="row">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">The Turbo Shop Inc</li>
-            <li class="has-submenu">
-              <a href="#">Services</a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="#">Diagnostics</a></li>
-                <li><a href="#">Performance</a></li>
-                <li><a href="#">Testing</a></li>
-              </ul>
-            </li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
+    <main class="shell">
+      <header class="masthead">
+        <div class="brand">Cayden Simmons</div>
+        <div class="contact-strip">
+          <span class="chip">Baton Rouge, Louisiana</span>
+          <a class="chip" href="mailto:caydensimmons428@gmail.com">caydensimmons428@gmail.com</a>
+          <a class="chip" href="https://www.linkedin.com/in/cayden-simmons-48b06a2a7/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="chip" href="https://github.com/csim428" target="_blank" rel="noreferrer">GitHub</a>
         </div>
-        <div class="top-bar-right">
-          <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
+      </header>
+
+      <section class="hero">
+        <div class="panel hero-main">
+          <div class="eyebrow">Information Systems & Analytics</div>
+          <h1>Data-minded builder with a leadership edge.</h1>
+          <p class="hero-subhead">
+            I am an LSU Information Systems & Analytics student who likes turning data
+            into useful systems, better operations, and stronger communities. My work
+            spans analytics projects, web infrastructure, SQL design, athlete
+            development, and student organization leadership.
+          </p>
+          <div class="hero-links">
+            <a href="#projects">Featured projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#academics">Academic profile</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="metric-label">Graduation</span>
+              <span class="metric-value">May 2027</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Incoming Role</span>
+              <span class="metric-value">BBP Sales</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Internship Start</span>
+              <span class="metric-value">June 1, 2026</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Assets Managed</span>
+              <span class="metric-value">$25K+</span>
+            </div>
+          </div>
         </div>
+
+        <aside class="panel hero-side">
+          <div>
+            <span class="section-kicker">Professional Snapshot</span>
+            <h2 class="snapshot-title">Employer dashboard</h2>
+          </div>
+          <p class="snapshot-copy">
+            This page highlights the strongest through-line in my resume: technical
+            curiosity, measurable leadership, and a habit of building systems that help
+            people move with more clarity.
+          </p>
+          <div class="quick-facts">
+            <div class="fact">
+              <strong>Degree</strong>
+              <span>B.S. Information Systems & Analytics</span>
+            </div>
+            <div class="fact">
+              <strong>Minor</strong>
+              <span>Internal Audit</span>
+            </div>
+            <div class="fact">
+              <strong>Leadership</strong>
+              <span>President, LSU Pickleball Club</span>
+            </div>
+            <div class="fact">
+              <strong>Current Focus</strong>
+              <span>Analytics, operations, and data storytelling</span>
+            </div>
+          </div>
+          <a class="button-link" href="Cayden-Simmons-Resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+        </aside>
+      </section>
+
+      <section class="layout">
+        <div class="stack">
+          <section class="panel section" id="projects">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Projects</span>
+                <h2>Selected work</h2>
+              </div>
+              <p>Projects that show technical range across web infrastructure, machine learning, and database design.</p>
+            </div>
+            <div class="feature-grid">
+              <article class="feature">
+                <div class="tagline">Static Website</div>
+                <h3>Web Infrastructure</h3>
+                <p>Deployed a live static website using Git repositories and custom domain configuration to manage version control, hosting, and a reliable public-facing presence.</p>
+                <div class="proof-list">
+                  <div class="proof">
+                    <strong>Outcome</strong>
+                    <span>Turned a local project into a public-facing web property with repeatable updates.</span>
+                  </div>
+                  <div class="proof">
+                    <strong>Proof</strong>
+                    <span>Custom domain setup plus Git-based deployment showed comfort with the full publishing flow.</span>
+                  </div>
+                </div>
+              </article>
+              <article class="feature">
+                <div class="tagline">RapidMiner</div>
+                <h3>Movie Prediction Challenge</h3>
+                <p>Built a machine learning model to forecast IMDb ratings and box office revenue, competing around model performance and low RMSE.</p>
+                <div class="proof-list">
+                  <div class="proof">
+                    <strong>Outcome</strong>
+                    <span>Applied predictive modeling to a real scoring metric instead of stopping at exploratory analysis.</span>
+                  </div>
+                  <div class="proof">
+                    <strong>Proof</strong>
+                    <span>Optimized around RMSE, which gave the work a measurable performance target employers can recognize.</span>
+                  </div>
+                </div>
+              </article>
+              <article class="feature">
+                <div class="tagline">SQL</div>
+                <h3>Exotic Whips Database Project</h3>
+                <p>Designed and implemented a relational database for automotive inventory with ERDs and SQL, improving data integrity and query reliability.</p>
+                <div class="proof-list">
+                  <div class="proof">
+                    <strong>Outcome</strong>
+                    <span>Structured inventory data for cleaner retrieval, stronger relationships, and fewer integrity problems.</span>
+                  </div>
+                  <div class="proof">
+                    <strong>Proof</strong>
+                    <span>Worked from ERD planning through implementation, which shows both design and hands-on query work.</span>
+                  </div>
+                </div>
+              </article>
+              <article class="feature">
+                <div class="tagline">What I Bring</div>
+                <h3>Systems Thinking</h3>
+                <p>I tend to work best where data, process, and communication meet: shaping raw information into cleaner decisions, smoother operations, and clearer next steps.</p>
+                <div class="proof-list">
+                  <div class="proof">
+                    <strong>Pattern</strong>
+                    <span>My resume consistently points to technical work that also improves coordination, operations, or performance.</span>
+                  </div>
+                  <div class="proof">
+                    <strong>Fit</strong>
+                    <span>That mix is why analytics, business intelligence, and data operations roles feel especially natural.</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel section" id="experience">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Experience</span>
+                <h2>Leadership and applied work</h2>
+              </div>
+              <p>Roles where analysis, organization, and communication had visible consequences.</p>
+            </div>
+            <div class="timeline">
+              <article class="timeline-item">
+                <div>
+                  <div class="tagline">Incoming Internship</div>
+                  <h3>BBP Sales, Data Science Intern</h3>
+                  <p>Joining BBP Sales as a data science intern, with the role beginning on June 1, 2026.</p>
+                </div>
+                <div class="timeline-date">Starts June 1, 2026</div>
+              </article>
+              <article class="timeline-item">
+                <div>
+                  <div class="tagline">LSU Pickleball Club</div>
+                  <h3>President</h3>
+                  <ul>
+                    <li>Founded the official pickleball sports club at LSU and built a structured, competitive environment.</li>
+                    <li>Managed more than $25,000 in sponsored assets and equipment with data-driven tracking.</li>
+                    <li>Secured corporate funding and facility support through performance reporting and partnerships.</li>
+                    <li>Directed national collegiate events covering registration data, travel, and venue logistics.</li>
+                  </ul>
+                </div>
+                <div class="timeline-date">March 2024 to Present</div>
+              </article>
+              <article class="timeline-item">
+                <div>
+                  <div class="tagline">Bocage Racquet Club</div>
+                  <h3>Junior Tennis Pro</h3>
+                  <ul>
+                    <li>Trained high-level athletes using technical performance and mental resilience metrics.</li>
+                    <li>Designed nightly clinics for varied skill levels and refined instruction with progress data.</li>
+                    <li>Maintained strong feedback loops for more than 100 members through data-informed coaching.</li>
+                    <li>Supported retention through flexible scheduling and clear, actionable performance guidance.</li>
+                  </ul>
+                </div>
+                <div class="timeline-date">September 2023 to Present</div>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <aside class="stack">
+          <section class="panel section" id="academics">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Academics</span>
+                <h2>Education profile</h2>
+              </div>
+              <p>Academic grounding with technical coursework and leadership development around analytics, audit, and risk.</p>
+            </div>
+            <div class="accolade-list">
+              <article class="accolade">
+                <h3>Louisiana State University</h3>
+                <p>Bachelor of Information Systems & Analytics, expected May 2027, with a minor in Internal Audit.</p>
+              </article>
+              <article class="accolade">
+                <h3>Professional Development</h3>
+                <p>CIA&CRM alum, AITP member, IIA member, and Cru Campus Ministry student leader.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Accomplishments</span>
+                <h2>Recognition and reach</h2>
+              </div>
+              <p>Signals of initiative, credibility, and follow-through beyond the classroom.</p>
+            </div>
+            <div class="accolade-list">
+              <article class="accolade">
+                <h3>Pickleheads Student Ambassador</h3>
+                <p>Selected to represent a leading digital platform for pickleball, with a focus on community growth and tech-driven outreach.</p>
+              </article>
+              <article class="accolade">
+                <h3>Sponsored Athlete</h3>
+                <p>Maintained multi-year equipment partnerships with Six Zero, Parrot Paddles, Diadem Sports, and Stacks Pickleball.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Toolkit</span>
+                <h2>Technical stack</h2>
+              </div>
+              <p>Core tools I use to build, analyze, and communicate.</p>
+            </div>
+            <div class="tool-grid">
+              <article class="tool">
+                <h3>Languages</h3>
+                <p>Python and SQL for data work, automation, and analysis.</p>
+              </article>
+              <article class="tool">
+                <h3>Data & Productivity</h3>
+                <p>Excel, AI Studio, Jupyter Notebooks, and MySQL Workbench.</p>
+              </article>
+              <article class="tool">
+                <h3>Development</h3>
+                <p>Git and VS Code for version control, site updates, and repeatable workflows.</p>
+              </article>
+              <article class="tool">
+                <h3>Working Style</h3>
+                <p>Comfortable blending technical work with operations, communication, and leadership.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel cta">
+            <span class="section-kicker">Connect</span>
+            <h2>Ready for internship and early-career opportunities</h2>
+            <p>
+              I am especially interested in roles where analytics can support smarter
+              operations, stronger decision-making, and clearer communication across a team.
+            </p>
+            <div class="cta-links">
+              <a href="Cayden-Simmons-Resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+              <a href="mailto:caydensimmons428@gmail.com">Email</a>
+              <a href="tel:+13184555854">Call</a>
+              <a href="https://www.linkedin.com/in/cayden-simmons-48b06a2a7/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://github.com/csim428" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <div class="footer">
+        Crafted as a public-facing portfolio dashboard for employers and collaborators.
       </div>
-    </div>
-    <!-- End Top Bar -->
-    <br>
-    <!-- You can now combine a row and column if you just need a 12 column row -->
-    <div class="row columns">
-      <nav aria-label="You are here:" role="navigation">
-        <ul class="breadcrumbs">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Features</a></li>
-          <li class="disabled">Gene Splicing</li>
-          <li>
-            <span class="show-for-sr">Current: </span> Cloning
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="row">
-      <div class="medium-6 columns">
-        <img class="thumbnail" src="images/standard_turbo.jpeg">
-        <div class="row small-up-4">
-          <div class="column">
-            <img class="thumbnail" src="images/turbopart1.webp">
-          </div>
-          <div class="column">
-            <img class="thumbnail" src="images/turbopart2.webp">
-          </div>
-          <div class="column">
-            <img class="thumbnail" src="images/turbopart3.webp">
-          </div>
-          <div class="column">
-            <img class="thumbnail" src="images/turbopart4.webp">
-          </div>
-        </div>
-      </div>
-      <div class="medium-6 large-5 columns">
-        <h3>Standard Turbocharger</h3>
-        <p>Here is our standard turbocharger! With top of the line performance, this is the best one to start with if you're just beginning to get your hands dirty! </p>
-
-        <label>Speed
-        <select>
-          <option value="husker">Fast</option>
-          <option value="starbuck">Faster</option>
-          <option value="hotdog">Fastest</option>
-          <option value="apollo">Quick.</option>
-        </select>
-        </label>
-
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="middle-label" class="middle">Quantity</label>
-          </div>
-          <div class="small-9 columns">
-            <input type="text" id="middle-label" placeholder="Select quantity">
-          </div>
-        </div>
-
-        <a href="#" class="button large expanded">Buy Now</a>
-
-        <div class="small secondary expanded button-group">
-            <a class="button">Facebook</a>
-            <a class="button">Instagram</a>
-            <a class="button">X</a>
-          </div>
-        </div>
-    </div>
-
-    <div class="column row">
-      <hr>
-      <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
-        <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
-      </ul>
-      <div class="tabs-content" data-tabs-content="example-tabs">
-        <div class="tabs-panel is-active" id="panel1">
-          <h4>Reviews</h4>
-          <div class="media-object stack-for-small">
-            <div class="media-object-section">
-              <img class="thumbnail" src="images/alle_gapsard.jpeg" style="max-width:150px; height:150px;">
-            </div>
-            <div class="media-object-section">
-              <h5>Alle Gapsard</h5>
-              <p>Boy oh boy! My Dodge Ram 2006 Pickup has never driven so fast! I feel like Ricky Bobby out there on the interstate.. nothing over the speed limit of course! *wink wink*</p>
-            </div>
-          </div>
-          <div class="media-object stack-for-small">
-            <div class="media-object-section">
-              <img class="thumbnail" src="images/dami.jpeg" style="max-width:150px; height:150px;">
-            </div>
-            <div class="media-object-section">
-              <h5>Opemipo Olorenfemi</h5>
-              <p>Man oh man! They don't make em like this where I'm from (and I'm from very far away). I feel like two wheels practically float off the ground when my Standard Turbocharger gets going. Satisfied is an understatement.</p>
-            </div>
-          </div>
-          <div class="media-object stack-for-small">
-            <div class="media-object-section">
-              <img class="thumbnail" src="images/kennon.jpeg" style="max-width:150px; height:150px;">
-            </div>
-            <div class="media-object-section">
-              <h5>Kennon Roshto</h5>
-              <p>I just wish it wasn't so loud.. it wakes up my cats when I pull in late. But if noise is the only complaint that we're looking swell! Speed and speed and speed again.. that's all want in life is speed.</p>
-            </div>
-          </div>
-          <label>
-            My Review
-            <textarea placeholder="None"></textarea>
-          </label>
-          <button class="button">Submit Review</button>
-        </div>
-        <div class="tabs-panel" id="panel2">
-          <div class="row medium-up-3 large-up-5">
-            <div class="column">
-              <img class="thumbnail" src="images/tire.jpeg" style="max-width:350px; height:200px;">
-              <h5>Tire <small>$250</small></h5>
-              <p>Buy one, but you'll need four!</p>
-              <a href="#" class="button hollow tiny expanded">Buy Now</a>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="images/wheel.jpeg" style="max-width:350px; height:200px;">
-              <h5>Wheel <small>$45</small></h5>
-              <p>Left or right.. this wheel will take you both ways!</p>
-              <a href="#" class="button hollow tiny expanded">Buy Now</a>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="images/oil.jpeg" style="max-width:350px; height:200px;">
-              <h5>Oil <small>$50</small></h5>
-              <p>Not the kind you cook with!</p>
-              <a href="#" class="button hollow tiny expanded">Buy Now</a>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="images/wiper.jpeg" style="max-width:350px; height:200px;">
-              <h5>Windhsield Wiper <small>$20</small></h5>
-              <p>For the days that are rainy or for the days where your ex wife throws a cup of Coca Cola on your car!</p>
-              <a href="#" class="button hollow tiny expanded">Buy Now</a>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="images/headlight.jpeg" style="max-width:350px; height:200px;">
-              <h5>Headlight <small>$30</small></h5>
-              <p>Let there be light!</p>
-              <a href="#" class="button hollow tiny expanded">Buy Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row column">
-      <hr>
-      <ul class="menu">
-        <li>The Turbo Shop Inc</li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li class="float-right">Copyright 2026</li>
-      </ul>
-    </div>
-
-
-
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
+    </main>
   </body>
 </html>
-
-
-
